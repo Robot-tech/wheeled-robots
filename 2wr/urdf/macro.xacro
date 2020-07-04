@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:macro name="link_wheel" params="name">
+    
+    <!-- commom link for wheels-->
+    
     <link name="${name}">
       <inertial>
         <mass value="0.2"/>
@@ -22,6 +25,7 @@
     </link>
   </xacro:macro>
 
+  <!-- common macro for wheels-->
   <xacro:macro name="joint_wheel" params="name child origin_xyz">
     <joint name="${name}" type="continuous">
       <origin rpy="0 0 0" xyz="${origin_xyz}"/>
@@ -33,6 +37,8 @@
     </joint>
   </xacro:macro>
 
+  <!-- specifying inertia-->
+  
   <xacro:macro name="cylinder_inertia" params="m r l">
     <inertia ixx="${m*(3*r*r+l*l)/12}" ixy = "0" ixz = "0"
       iyy="${m*(3*r*r+l*l)/12}" iyz = "0" izz="${m*(r*r)/2}">
