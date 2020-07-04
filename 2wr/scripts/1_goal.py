@@ -13,9 +13,9 @@ def movebase_client():
     goal = MoveBaseGoal()
     goal.target_pose.header.frame_id = "map"
     goal.target_pose.header.stamp = rospy.Time.now()
-    goal.target_pose.pose.position.x = 12
-    goal.target_pose.pose.position.y = -4.5
-    goal.target_pose.pose.orientation.w = 1.0
+    goal.target_pose.pose.position.x = 15               #specify x pos#
+    goal.target_pose.pose.position.y = -8               #specify y pos#
+    goal.target_pose.pose.orientation.w = 1.0           #yaw Quaternion#
     client.send_goal(goal)
     wait = client.wait_for_result()
     if not wait:
@@ -27,7 +27,7 @@ def movebase_client():
 
 if __name__ == '__main__':
     try:
-        rospy.init_node('custom_bot_goal_action_client')
+        rospy.init_node('bot_goal_action_client')
         result = movebase_client()
         if result:
             rospy.loginfo("Goal execution done!")
