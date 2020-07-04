@@ -32,5 +32,5 @@ if __name__ == '__main__':
         if result:
             rospy.loginfo("Goal execution done!")
     except rospy.ROSInterruptException:
-        rospy.loginfo("Navigation test finished.")
+        rospy.loginfo("Navigation finished.")
 
