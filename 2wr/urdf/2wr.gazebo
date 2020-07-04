@@ -16,6 +16,8 @@
     <material>Gazebo/red</material>
   </gazebo>
 
+  <!-- plugin camera-->
+  
   <gazebo reference="camera">
     <sensor type="camera" name="camera1">
       <update_rate>30.0</update_rate>
@@ -48,6 +50,8 @@
     </sensor>
   </gazebo>
 
+  <!-- plugin sensor-->
+  
   <gazebo reference="sensor_laser">
     <sensor type="ray" name="head_hokuyo_sensor">
       <pose>0 0 0 0 0 0</pose>
@@ -80,6 +84,8 @@
     </sensor>
   </gazebo>
 
+  <!-- plugin differntial drive-->
+  
   <gazebo>
     <plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
       <alwaysOn>true</alwaysOn>
