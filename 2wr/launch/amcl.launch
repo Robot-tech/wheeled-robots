@@ -11,7 +11,7 @@
   </include>
 
   <!-- Spawning the model in Gazebo-->
-  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find 2wr)/urdf/2wr.xacro'" />
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find 2wr)/urdf/2wr.xacro'" /> #input xacro file#
   <arg name="x" default="0"/>
   <arg name="y" default="0"/>
   <arg name="z" default="0"/>
@@ -34,8 +34,8 @@
   <arg name="initial_pose_x" default="0.0"/>
   <arg name="initial_pose_y" default="0.0"/>
   <arg name="initial_pose_a" default="0.0"/>
-  <arg name="map_file" default="$(find 2wr)/map/map.yaml"/>
-  <arg name="scan_topic"  default="/2wr/laser/scan"/>
+  <arg name="map_file" default="$(find 2wr)/map/map.yaml"/>                  #input map location#
+  <arg name="scan_topic"  default="/2wr/laser/scan"/>                       #change default laser#
   
   <node pkg="amcl" type="amcl" name="amcl">
     <param name="min_particles"             value="500"/>
@@ -67,9 +67,9 @@
  <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)"/>
 
   <!--odom_topic-->
-  <arg name="odom_topic" default="odom" />
+  <arg name="odom_topic" default="odom" />  
   <!-- move_base -->
-  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">                              #move_base parameter files#
     <rosparam file="$(find 2wr)/param/costmap_common_params.yaml" command="load" ns="global_costmap" />
     <rosparam file="$(find 2wr)/param/costmap_common_params.yaml" command="load" ns="local_costmap" />
     <rosparam file="$(find 2wr)/param/local_costmap_params.yaml" command="load" />
